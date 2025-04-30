@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rehan Academy - Quality Education Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --accent: #42D7D8;
+            --dark: #2F2E41;
+            --light: #F9F9F9;
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navbar */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.8), rgba(66, 215, 216, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            margin-right: 15px;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Courses Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .course-img {
+            height: 200px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .course-content {
+            padding: 25px;
+        }
+        
+        .course-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .course-content p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, rgba(255, 101, 132, 0.05), rgba(66, 215, 216, 0.05));
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .about-text p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .about-features {
+            margin-top: 30px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon {
+            background: var(--gradient);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .feature-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .feature-text p {
+            margin-bottom: 0;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.05), rgba(255, 101, 132, 0.05));
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .contact-info p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .contact-text p {
+            margin-bottom: 0;
+            color: #666;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col p {
+            color: #bbb;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Course Page Styles */
+        .course-header {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.8), rgba(66, 215, 216, 0.8));
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .course-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .breadcrumb li {
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            position: absolute;
+            right: -15px;
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            opacity: 0.8;
+        }
+        
+        .grade-container {
+            padding: 60px 0;
+        }
+        
+        .grade-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .grade-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .grade-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .grade-header {
+            background: var(--gradient);
+            color: white;
+            padding: 20px;
+        }
+        
+        .grade-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .grade-body {
+            padding: 20px;
+        }
+        
+        .subject-list {
+            list-style: none;
+        }
+        
+        .subject-list li {
+            margin-bottom: 10px;
+        }
+        
+        .subject-list a {
+            display: block;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .subject-list a:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Unit Page Styles */
+        .unit-container {
+            padding: 60px 0;
+        }
+        
+        .unit-list {
+            list-style: none;
+        }
+        
+        .unit-list li {
+            margin-bottom: 15px;
+        }
+        
+        .unit-list a {
+            display: block;
+            padding: 15px 20px;
+            background: white;
+            border-radius: 8px;
+            color: var(--dark);
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .unit-list a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(10px);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .about-img, .about-text, .contact-info, .contact-form {
+                width: 100%;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background: white;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            .btn-primary {
+                margin-right: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .course-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navbar -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="https://via.placeholder.com/40x40/6C63FF/FFFFFF?text=RA" alt="Rehan Academy Logo">
+                    Rehan Academy
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Quality Education for Bright Futures</h1>
+                <p>Join Rehan Academy and access premium courses from Grade 5 to 10 in all major subjects. Learn at your own pace with expert guidance.</p>
+                <a href="#courses" class="btn btn-primary">Explore Courses</a>
+                <a href="#contact" class="btn btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="section" id="courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Courses</h2>
+                <p>Comprehensive curriculum designed to help students excel in their academics and beyond.</p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-img">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>Computer Science</h3>
+                        <p>Master programming fundamentals, web development, and computer applications with our structured courses.</p>
+                        <div class="course-meta">
+                            <span>Grade 5-10</span>
+                            <span>12 Units</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img">
+                        <i class="fas fa-square-root-alt"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>Mathematics</h3>
+                        <p>Build strong mathematical foundations with our interactive lessons and problem-solving techniques.</p>
+                        <div class="course-meta">
+                            <span>Grade 5-10</span>
+                            <span>15 Units</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>Science</h3>
+                        <p>Explore the wonders of physics, chemistry, and biology through engaging experiments and theories.</p>
+                        <div class="course-meta">
+                            <span>Grade 5-10</span>
+                            <span>10 Units</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Students learning">
+                </div>
+                <div class="about-text">
+                    <h2>About Rehan Academy</h2>
+                    <p>Founded by Rehan Khalil, Rehan Academy is committed to providing quality education to students from Grade 5 to 10. Our mission is to make learning accessible, engaging, and effective for every student.</p>
+                    <p>With a team of experienced educators and a comprehensive curriculum, we help students build strong academic foundations and develop critical thinking skills.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Expert Instructors</h4>
+                                <p>Learn from certified teachers with years of classroom experience.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Comprehensive Curriculum</h4>
+                                <p>Covering all major subjects aligned with school standards.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-clock"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Flexible Learning</h4>
+                                <p>Study at your own pace, anytime and anywhere.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Have questions or need assistance? Reach out to us anytime.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>We're here to help you with any questions about our courses, enrollment process, or technical support.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Founder</h4>
+                                <p>Rehan Khalil</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>muhammad.rehan1778@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+92 325 8147094</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>About Rehan Academy</h3>
+                    <p>Providing quality online education for students from Grade 5 to 10 in all major subjects.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Subjects</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Mathematics</a></li>
+                        <li><a href="#">Science</a></li>
+                        <li><a href="#">English</a></li>
+                        <li><a href="#">Computer Science</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-user"></i> Rehan Khalil</p>
+                    <p><i class="fas fa-envelope"></i> muhammad.rehan1778@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +92 325 8147094</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Rehan Academy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Course Page Content (Hidden by default) -->
+    <div id="course-page" style="display: none;">
+        <div class="course-header">
+            <div class="container">
+                <h1>Computer Science - Grade 9</h1>
+                <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Computer Science</a></li>
+                    <li>Grade 9</li>
+                </ul>
+            </div>
+        </div>
+        <div class="unit-container container">
+            <h2>Course Units</h2>
+            <ul class="unit-list">
+                <li><a href="#">Unit 1: Introduction to Programming</a></li>
+                <li><a href="#">Unit 2: Variables and Data Types</a></li>
+                <li><a href="#">Unit 3: Control Structures</a></li>
+                <li><a href="#">Unit 4: Functions and Modules</a></li>
+                <li><a href="#">Unit 5: Object-Oriented Programming</a></li>
+                <li><a href="#">Unit 6: File Handling</a></li>
+                <li><a href="#">Unit 7: Databases</a></li>
+                <li><a href="#">Unit 8: Web Development Basics</a></li>
+                <li><a href="#">Unit 9: Networking Concepts</a></li>
+                <li><a href="#">Unit 10: Computer Security</a></li>
+                <li><a href="#">Unit 11: Project Development</a></li>
+                <li><a href="#">Unit 12: Final Assessment</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Grades Page Content (Hidden by default) -->
+    <div id="grades-page" style="display: none;">
+        <div class="course-header">
+            <div class="container">
+                <h1>Computer Science</h1>
+                <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li>Computer Science</li>
+                </ul>
+            </div>
+        </div>
+        <div class="grade-container container">
+            <h2>Select Your Grade Level</h2>
+            <div class="grade-grid">
+                <div class="grade-card">
+                    <div class="grade-header">
+                        <h3>Grade 5</h3>
+                        <p>Beginner Level</p>
+                    </div>
+                    <div class="grade-body">
+                        <ul class="subject-list">
+                            <li><a href="#">Introduction to Computers</a></li>
+                            <li><a href="#">Basic Programming</a></li>
+                            <li><a href="#">Microsoft Office</a></li>
+                            <li><a href="#">Internet Basics</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grade-card">
+                    <div class="grade-header">
+                        <h3>Grade 6</h3>
+                        <p>Elementary Level</p>
+                    </div>
+                    <div class="grade-body">
+                        <ul class="subject-list">
+                            <li><a href="#">Programming Concepts</a></li>
+                            <li><a href="#">Web Basics</a></li>
+                            <li><a href="#">Computer Hardware</a></li>
+                            <li><a href="#">Digital Citizenship</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grade-card">
+                    <div class="grade-header">
+                        <h3>Grade 7</h3>
+                        <p>Intermediate Level</p>
+                    </div>
+                    <div class="grade-body">
+                        <ul class="subject-list">
+                            <li><a href="#">Python Basics</a></li>
+                            <li><a href="#">HTML/CSS</a></li>
+                            <li><a href="#">Computer Networks</a></li>
+                            <li><a href="#">Ethical Computing</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grade-card">
+                    <div class="grade-header">
+                        <h3>Grade 8</h3>
+                        <p>Pre-Advanced Level</p>
+                    </div>
+                    <div class="grade-body">
+                        <ul class="subject-list">
+                            <li><a href="#">Python Programming</a></li>
+                            <li><a href="#">JavaScript Basics</a></li>
+                            <li><a href="#">Database Concepts</a></li>
+                            <li><a href="#">System Design</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grade-card">
+                    <div class="grade-header">
+                        <h3>Grade 9</h3>
+                        <p>Advanced Level</p>
+                    </div>
+                    <div class="grade-body">
+                        <ul class="subject-list">
+                            <li><a href="#">Object-Oriented Programming</a></li>
+                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">Computer Security</a></li>
+                            <li><a href="#">Project Development</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grade-card">
+                    <div class="grade-header">
+                        <h3>Grade 10</h3>
+                        <p>Expert Level</p>
+                    </div>
+                    <div class="grade-body">
+                        <ul class="subject-list">
+                            <li><a href="#">Advanced Programming</a></li>
+                            <li><a href="#">Full-Stack Development</a></li>
+                            <li><a href="#">Data Structures</a></li>
+                            <li><a href="#">Capstone Project</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+        
+        // Sticky Header on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+        
+        // Course Page Navigation (Demo Purposes)
+        const courseLinks = document.querySelectorAll('[href="#courses"], .course-card a, .subject-list a');
+        courseLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.getAttribute('href') === '#courses') return;
+                e.preventDefault();
+                
+                // Show grades page for computer science
+                if (link.closest('.course-card') && link.closest('.course-card').querySelector('h3').textContent.includes('Computer')) {
+                    document.getElementById('grades-page').style.display = 'block';
+                    document.querySelector('main').style.display = 'none';
+                    window.scrollTo(0, 0);
+                }
+                // Show units page for grade 9
+                else if (link.textContent.includes('Grade 9')) {
+                    document.getElementById('grades-page').style.display = 'none';
+                    document.getElementById('course-page').style.display = 'block';
+                    window.scrollTo(0, 0);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
